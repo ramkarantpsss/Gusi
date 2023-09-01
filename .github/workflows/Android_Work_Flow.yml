@@ -10,7 +10,7 @@ jobs:
   ui-tests:
     strategy:
       matrix:
-        api-level: [28]
+        api-level: [30]
         target: [default]
     runs-on: macos-latest
     steps:
@@ -26,7 +26,7 @@ jobs:
         chmod +x ./scripts/RunAppiumServer.sh
         ./scripts/RunAppiumServer.sh
       shell: bash   
-    - name: Run Appium Tests
+    - name: Run Appium Testss
       uses: reactivecircus/android-emulator-runner@v2.27.0
       with:
         api-level: ${{ matrix.api-level }}
