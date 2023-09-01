@@ -25,8 +25,8 @@ public class AppTest extends ReportProvider {
         DesiredCapabilities mCapabilities=new DesiredCapabilities();
         mCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         mCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME , "Android");
-        mCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION , "11");
-        mCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME , "Redmi Note 7 Pro");
+        mCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION , "9");
+        mCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME , "Android Emulator");
         mCapabilities.setCapability(MobileCapabilityType.APP ,
                 System.getProperty("user.dir")+"/apps/gusi_android.apk");
         this.mWebDriver=new AndroidDriver(new URL(mHostAddress),mCapabilities);
