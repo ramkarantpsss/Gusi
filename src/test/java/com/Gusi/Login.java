@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 public class Login extends AppTest{
 
 
@@ -11,16 +15,13 @@ public class Login extends AppTest{
     WebElement mPasswordInput;
     WebElement mLoginButton;
     @Test
-    public void checkLogin(){
-        setTestInfo(
-                getSessionId(mWebDriver),
-                "Login",
-                "PASSED",
-                null
+    public void checkLogin() throws InterruptedException, IOException {
+        System.out.println("Start Login Test");
 
-
-        );
         this.initElement();
+
+
+
         // this.mEmailInput.sendKeys("");
     }
 

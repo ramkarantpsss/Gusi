@@ -2,6 +2,7 @@ package com.Gusi;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -13,19 +14,23 @@ import java.net.URL;
  */
 public class AppTest extends ReportProvider {
 
-    AndroidDriver mWebDriver;
+    WebDriver mWebDriver;
 
     @BeforeTest
     public void setup() throws MalformedURLException {
+        System.out.println(mHostAddress);
+        System.out.println(mGetReportAddress);
+        System.out.println(mDeleteReportAddress);
+        System.out.println(HTML_REPORT_DIR);
         DesiredCapabilities mCapabilities=new DesiredCapabilities();
         mCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         mCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME , "Android");
-        mCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION , "9");
-        mCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME , "Android Emulator");
-
+        mCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION , "10");
+        mCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME , "Redmi Note 7 Pro");
         mCapabilities.setCapability(MobileCapabilityType.APP ,
                 System.getProperty("user.dir")+"/apps/gusi_android.apk");
         this.mWebDriver=new AndroidDriver(new URL(mHostAddress),mCapabilities);
+
         System.out.println("<<<<<<<<<<<<<<<<<<< New Test Session setup for Android >>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
     }
@@ -33,10 +38,9 @@ public class AppTest extends ReportProvider {
 
     @AfterTest
     public void closeSession() throws Exception{
-        String report = getReport();
-        deleteReportData();
-        createReportFile(report, "report");
-        quitDriver(this.mWebDriver);
+        if(mWebDriver!=null){
+            mWebDriver.quit();
+        }
     }
 
 
