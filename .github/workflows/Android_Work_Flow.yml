@@ -10,7 +10,7 @@ jobs:
   ui-tests:
     strategy:
       matrix:
-        api-level: [30]
+        api-level: [30, 31]
         target: [default]
     runs-on: macos-latest
     steps:
