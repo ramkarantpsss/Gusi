@@ -10,7 +10,7 @@ jobs:
   ui-tests:
     strategy:
       matrix:
-        api-level: [31]
+        api-level: [28]
         target: [default]
     runs-on: macos-latest
     steps:
@@ -20,7 +20,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: 11
-
+        cache: 'gradle'
     - name: Install the Emulator
       run: |
         chmod +x ./scripts/RunAppiumServer.sh
@@ -38,5 +38,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: unit_test_report
-        path: /Users/runner/work/
+        path: /Users/runner/work/Gusi/
         
